@@ -46,15 +46,27 @@ input {
 #title-button {
   width: 475px;
   height: 40px;
+  cursor: pointer;
 }
 
 /* 마이페이지 버튼 전부 통일 */
-#mypage-button {
+/* #mypage-button {
   width: 300px;
   height: 40px;
   background-color: #fd4c72;
   color: white;
   font-size: 16px;
+} */
+
+.logBtn {
+	cursor: pointer;
+	color: white;
+	padding: 8px 12px;
+	border-radius: 4px;
+}
+
+.logBtn:hover {
+  background-color: rgb(39, 132, 238);
 }
 
 /* 타이틀 화면의 범위 설정 바 */
