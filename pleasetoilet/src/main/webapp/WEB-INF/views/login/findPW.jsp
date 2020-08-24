@@ -4,8 +4,21 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>비밀번호 찾기</title>
+<link href="/app/resources/css/find.css" rel="stylesheet"/>
+
 <script src="/app/resources/jquery-3.2.1.min.js"></script>
+<script>
+	$("document").ready(() => {
+	    $("#loginBtn").on("click", () => {
+	        location.href = "login";
+	      });
+	      
+	      $("#homeBtn").on("click", () => {
+	        location.href = "home";
+	      });
+	});
+</script>
 <script>
 var k="${msg}";
 $('document').ready(()=>{
@@ -17,13 +30,21 @@ $('document').ready(()=>{
 </script>
 </head>
 <body>
-<form action="/app/login/findpw" method="post">
-아이디:<input type="text" id="id" name="id">
-이메일:<input type="text" id="email" name="email">
-<input type="submit" value="입력">
-<div id="stat">
-
+<div class="login_bar">
+	<button id="homeBtn" class="logBtn">홈</button>
+    <button id="loginBtn" class="logBtn">로그인</button>     
 </div>
+
+<div class="form">
+<h3>아이디와 이메일을 입력하세요</h3>
+<form action="/app/login/findpw" method="post">
+	<input type="text" id="id" name="id" placeholder="아이디"> <br>
+	<input type="text" id="email" name="email" placeholder="이메일"> <br>
+	<input type="submit" id="findBtn" value="비밀번호 찾기">
+	<div id="stat">
+	
+	</div>
 </form>
+</div>
 </body>
 </html>

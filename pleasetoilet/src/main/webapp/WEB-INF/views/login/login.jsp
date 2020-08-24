@@ -47,7 +47,9 @@
           />
           자동 로그인
           <br />
-
+			<div id="loginstatus">
+			
+			</div>
           <button type="submit" class="btn btn_primary" value="로그인">
             로그인 하기
           </button>

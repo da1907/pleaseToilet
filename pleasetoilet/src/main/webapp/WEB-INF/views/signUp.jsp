@@ -18,9 +18,7 @@
 	        location.href = "home";
 	      });
 	});
-    
-     
-    </script>
+</script>
 <script>
 $('document').ready(()=>{
 	var idReg = /^[A-za-z]/g;
@@ -34,6 +32,7 @@ $('document').ready(()=>{
 		idc=false;
 	});
 	$('#idcheck').on('click',()=>{
+		console.log($('#id').val());
 		idcc=idReg.test($('#id').val());
 		if(idcc===true){
 			$.ajax({
