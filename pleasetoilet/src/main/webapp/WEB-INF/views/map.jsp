@@ -5,14 +5,17 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link href="/myapp/resources/css/mapstyle.css" rel="stylesheet" />
+<link href="/app/resources/css/map.css" rel="stylesheet" />
 
 </head>
 <body>
-
 	<!-- 지도 담을 영역 -->
 	<div class="mapContainer">
-		<div id="toiletList">
+		<div class="toiletList">
+			<h1 id="listTitle">Please Toilet</h1>
+			<div class="list">
+			
+			</div>
 		</div>
 		
 		

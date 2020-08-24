@@ -44,6 +44,10 @@
             location.href = "signup";
           });
         
+        $("#findBtn").on("click", () => {
+            location.href = "map";
+          });
+        
       });
     </script>
   </head>
@@ -65,7 +69,7 @@
         사용자의 위치를 파악할 수 있도록 허용해주세요.<br>
         <br>
         그리고, 화장실의 위치를 표시할 범위를 선택해주세요.<br>
-        <form action="/map" method="get">
+        <form action="/app/map" method="post">
           <div class="container1">
             <input
               oninput="ShowSliderValue(this.value)"
@@ -80,7 +84,7 @@
               <font size="2" id="slider_value_view" class="disfont">0M</font>
             </div>
           </div>
-          <input class="find" type="submit" value="주변의 화장실 찾기">
+          <input class="find" id="findBtn" type="submit" value="주변의 화장실 찾기">
         </form>
         <script language="javascript">
           function ShowSliderValue(sVal) {
