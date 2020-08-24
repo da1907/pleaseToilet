@@ -1,0 +1,148 @@
+.class {
+  font-size: 16px;
+  /* 페이지 타이틀 75px, 
+       타이틀화면의 거리 표시는 12px
+       지도 화면의 타이틀 30px
+       지도 화면의 작은 글씨 13px 
+       마이페이지 소제목 20px
+       제외 전부 16px
+    */
+
+  background-color: #23a8e1;
+  /* 배경화면 색 지정 */
+  color: #f5eac7;
+  /* 글씨 색 지정 */
+  /* 배경 파란색 : rgb(35, 168, 225) / #23a8e1
+       버튼 파란색 : rgb(52, 152, 219)
+       붉은색 : rgb(253, 76, 114) / #FD4C72
+       노란색 : rgb(245, 234, 199)  / #F5EAC7
+       검은(사실 고동색) 글씨 : rgb(57, 35, 27) / #39231B
+       지도화면 배경 노란색 : #fff9e3
+    */
+
+  border-radius: 10px;
+  /* 둥근 모서리 지정 */
+  /*
+       input, 버튼 모서리 : 4px
+       지도, 리스트 항목(화장실) : 10px
+    */
+}
+
+body {
+  font-family: "Noto Sans KR", sans-serif;
+  background-color: #23a8e1;
+}
+
+/* 지도화면의 검색창을 제외한 input 전부 통일 */
+input {
+  width: 300px;
+  height: 40px;
+  font-size: 16px;
+  color: rgb(94, 94, 94);
+  margin: 5px;
+}
+
+/* 타이틀 화면의 버튼 */
+#title-button {
+  width: 475px;
+  height: 40px;
+}
+
+/* 마이페이지 버튼 전부 통일 */
+#mypage-button {
+  width: 300px;
+  height: 40px;
+  background-color: #fd4c72;
+  color: white;
+  font-size: 16px;
+}
+
+/* 타이틀 화면의 범위 설정 바 */
+input[type="range"] {
+  width: 400px;
+  height: 20px;
+}
+
+.login_bar {
+  text-align: right;
+}
+.logBtn {
+  background-color: transparent;
+  border: 0px;
+  font-size: 16px;
+}
+
+input[type="range"] {
+  background: black;
+}
+
+.dis {
+  background-color: #f5eac7;
+  border-radius: 10px;
+  width: 80px;
+  height: 20px;
+  text-align: center;
+  padding-top: 0px;
+  display: inline-block;
+  font-size: 12px;
+}
+
+.contents {
+  font-size: 16px;
+  color: white;
+}
+
+.main_title {
+  font-size: 75px;
+  color: #f5eac7;
+}
+
+.container {
+  padding-top: 10px;
+  padding-left: 300px;
+}
+
+.container1 {
+  margin-top: 30px;
+  color: #fd4c72;
+  margin-bottom: 20px;
+}
+
+a:link {
+  color: white;
+  text-decoration: none;
+}
+a:visited {
+  color: white;
+  text-decoration: none;
+}
+a:hover {
+  color: white;
+  text-decoration: none;
+}
+
+a:active {
+  color: white;
+  text-decoration: none;
+}
+
+.paper {
+  display: inline-block;
+  vertical-align: middle;
+  padding-right: 100px;
+}
+
+.find {
+  background-color: #fd4c72;
+  text-align: center;
+  border: 0px;
+  font-size: 16px;
+  margin: auto;
+  width: 500px;
+  height: 50px;
+  border-radius: 6px;
+}
+
+.disfont {
+  margin-top: 0px;
+}
