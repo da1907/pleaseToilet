@@ -19,10 +19,14 @@
 		    	$('#mypageBtn').removeAttr("hidden");
 		    	$('#logoutBtn').removeAttr("hidden"); 
 		    	$('#loginBtn').attr("hidden","hidden");
+		    	$('#signupBtn').attr("hidden","hidden");
+
 		   <%} else{%>
 	    	$('#mypageBtn').attr("hidden","hidden");
 		    $('#logoutBtn').attr("hidden","hidden");
 	    	$('#loginBtn').removeAttr("hidden");
+	    	$('#signupBtn').removeAttr("hidden");
+
 	       <%}%>
         $("#loginBtn").on("click", () => {
           location.href = "login";
@@ -36,6 +40,10 @@
           location.href = "mypage";
         });
         
+        $("#signupBtn").on("click", () => {
+            location.href = "signup";
+          });
+        
       });
     </script>
   </head>
@@ -44,6 +52,8 @@
       <button id="mypageBtn" class="logBtn" hidden="hidden">마이페이지</button>
       <button id="logoutBtn" class="logBtn" hidden="hidden">로그아웃</button>
       <button id="loginBtn" class="logBtn">로그인</button>
+      <button id="signupBtn" class="logBtn">회원가입</button>
+      
     </div>
     <img src="/app/resources/img/paper.png" class="paper" align="right">
     <div class="container">

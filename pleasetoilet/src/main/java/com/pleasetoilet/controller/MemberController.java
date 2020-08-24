@@ -44,7 +44,7 @@ public class MemberController {
 		if(session.getAttribute("id")!=null) {
 			return "home";
 		}
-		else return "signUp";
+		else return "signup";
 	}
 
 	@RequestMapping(value="/signup",method=RequestMethod.POST) 
