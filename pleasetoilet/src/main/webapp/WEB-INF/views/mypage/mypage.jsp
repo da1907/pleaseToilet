@@ -4,55 +4,99 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>급똥</title>
+<title>Please Toilet</title>
+<link rel="stylesheet" href="/app/resources/css/mypage.css" type="text/css">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
 <script src="/app/resources/jquery-3.2.1.min.js"></script>
 <script>
-$('document').ready(()=>{
-	$('#changepassword').on("click",()=>{
+var passReg = /^.*(?=^.{8,15}$)(?=.*\d)(?=.*[a-zA-Z])(?=.*[!@#$%^&+=]).*$/;
+$('document').ready(() => {
+	if("${msg}"=="fail"){
+		alert("비밀번호가 틀렸습니다!");
+	}
+	$('#changepassword').on("click",() => {
+		console.log('clicked');
 		$.ajax({
-			url:"/app/changepassword",
-			dataType:"html",
-			type:"get",
-			data:{},
-			success:(result)=>{
-				$('#pageContainer').html(result);
-				
+			url : "/app/mypage/changepassword",
+			dataType : "html",
+			type : "get",
+			data : {},
+			success : (result) => {
+				$('#body-mypage').html(result);
 			}
 		});
 	});
-	$('#uselist').on("click",()=>{
+	$("#homeBtn").on("click", () => {
+   		location.href = "home";
+   	});
+	$('#usedlog').on("click",() => {
 		$.ajax({
-			url:"/app/uselist",
-			dataType:"html",
-			type:"get",
-			data:{},
-			success:(result)=>{
-				$('#pageContainer').html(result);
-				
+			url : "/app/mypage/usedlog",
+			dataType : "html",
+			type : "get",
+			data : {},
+			success : (result) => {
+				$('#body-mypage').html(result);
 			}
 		});
 	});
-	$('#deletemember').on("click",()=>{
+	$('#signout').on("click",() => {
 		$.ajax({
-			url:"/app/deletemember",
-			dataType:"html",
-			type:"get",
-			data:{},
-			success:(result)=>{
-				$('#pageContainer').html(result);
-				
+			url : "/app/mypage/signout",
+			dataType : "html",
+			type : "get",
+			data : {},
+			success : (result) => {
+				$('#body-mypage').html(result);
 			}
 		});
 	});
+	
+	$('#changepassword1').on('submit',(e)=>{
+    	if($('#newpw').val()!=$('#newpwcheck').val()){
+    		e.preventDefault();
+    		alert("입력한 두 비밀번호가 일치하지 않습니다.")
+    	}
+    	if(passReg.test($('#newpw').val())==false){
+    		e.preventDefault();
+    		alert("비밀번호 형식에 맞게 입력해주세요");
+    	}
+    	
+    });
+	
+	
+	$('#gosignout').on('submit',(e)=>{
+    	if($('#pw').val()!=$('#pwcheck').val()){
+    		e.preventDefault();
+    		alert("입력한 두 비밀번호가 일치하지 않습니다.")
+    	}
+    });
 });
 </script>
 
 </head>
 <body>
-<button id="changepassword">비밀번호 변경</button>
-<button id="uselist">길찾기 내역 확인</button>
-<button id="deletemember">회원탈퇴</button>
-<div id="pageContainer">
+<div class="login_bar">
+      <button id="homeBtn" class="logBtn">홈</button>      
 </div>
+	<div id="container">
+        <div id="title">
+            <h1 id="title-mypage">MY PAGE</h1>
+            <ul id="subtitles">
+                <li class="subtitle"><span><a id="changepassword">비밀번호 변경</a></span></li>
+                <li class="subtitle"><span><a id="usedlog">길찾기 내역 확인</a></span></li>
+                <li class="subtitle"><span><a id="signout">회원 탈퇴</a></span></li>
+            </ul>
+        </div>
+        <div id="body-mypage">
+        	<form action="/app/mypage/changepassword" method="post" id="changepassword1">
+		        <input class="inputs" type="password" name="oldpw" id="oldpw" placeholder="현재 비밀번호를 입력하세요.">
+		        <input class="inputs" type="password" name="newpw" id="newpw" placeholder="변경할 비밀번호를 입력하세요.">
+		        <input class="inputs" type="password" name="newpwcheck" id="newpwcheck" placeholder="변경할 비밀번호 확인">
+		        <input type="submit" value="비밀번호 변경하기">
+		    </form>
+        </div>
+    </div>
 </body>
+<script src="/app/resources/js/mypage-log.js"></script>
 </html>

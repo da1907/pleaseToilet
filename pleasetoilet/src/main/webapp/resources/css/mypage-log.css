@@ -1,0 +1,7 @@
+@CHARSET "UTF-8";
+#body-mypage {
+    transform : translate(0, 5%);
+    display : flex;
+    flex-wrap : wrap;
+    justify-content : space-between;
+}

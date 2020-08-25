@@ -21,32 +21,31 @@ public class MapController {
 		return "map";
 	}
 	
-//	@RequestMapping(value="map", method=RequestMethod.POST)
-//	public ModelAndView goMap() {
-//		ModelAndView mv = new ModelAndView();
-//		
-//		mv.setViewName("map");
-//		
-//		return mv;
-//	}
-	
 	@RequestMapping(value="map", method=RequestMethod.POST)
+	public ModelAndView goMap() {
+		ModelAndView mv = new ModelAndView();
+		
+		mv.setViewName("map");
+		
+		return mv;
+	}
+	
+	@RequestMapping(value="toiletview", method=RequestMethod.POST)
 	public ModelAndView checkRange(double lat, double lng, int range) {
 		ModelAndView mv = new ModelAndView();
 		
 		ArrayList<double[]> checkedRange = dao.checkRange(lat, lng, range);
-		System.out.println("!!!");
-		mv.setViewName("map");
+		
+		mv.setViewName("toiletview");
 		mv.addObject("list", checkedRange);
+		
 		return mv;
+	}
+	
+	@RequestMapping(value="toiletview", method=RequestMethod.GET)
+	public String toiletView() {
+		
+		return "toiletview";
 	}
 
 }
-
-
-
-
-
-
-
-

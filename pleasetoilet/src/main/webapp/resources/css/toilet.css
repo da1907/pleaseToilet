@@ -31,6 +31,12 @@
 body {
   font-family: "Noto Sans KR", sans-serif;
   background-color: #23a8e1;
+  margin: 0;
+}
+
+.box {
+	display: flex;
+	justify-content: space-between;
 }
 
 /* 지도화면의 검색창을 제외한 input 전부 통일 */
@@ -41,22 +47,6 @@ input {
   color: rgb(94, 94, 94);
   margin: 5px;
 }
-
-/* 타이틀 화면의 버튼 */
-#title-button {
-  width: 475px;
-  height: 40px;
-  cursor: pointer;
-}
-
-/* 마이페이지 버튼 전부 통일 */
-/* #mypage-button {
-  width: 300px;
-  height: 40px;
-  background-color: #fd4c72;
-  color: white;
-  font-size: 16px;
-} */
 
 .logBtn {
 	cursor: pointer;
@@ -70,10 +60,10 @@ input {
 }
 
 /* 타이틀 화면의 범위 설정 바 */
-input[type="range"] {
+/* input[type="range"] {
   width: 400px;
   height: 20px;
-}
+} */
 
 .login_bar {
   text-align: right;
@@ -83,12 +73,6 @@ input[type="range"] {
   background-color: transparent;
   border: 0px;
   font-size: 16px;
-}
-
-.contents {
-  font-size: 16px;
-  color: white;
-  margin: 30px 0 0 0;
 }
 
 .main_title1 {
@@ -103,14 +87,45 @@ input[type="range"] {
   margin: 0 0 0 20%;
 }
 
+.content-box {
+	flex-direction: column;
+}
+
+.contents {
+  font-size: 16px;
+  color: white;
+  margin: 30px 0 30px 0;
+}
+
 .container {
-  padding: 5% 10% 0 10%;
+  padding: 5% 0 0 15%;
+  /* flex-direction: column; */
+}
+
+.container1 {
+	display:flex;
+	width: 90%;
+	height: 40px;
+	align: center;
+	margin: auto;
+	text-item: center;
+}
+
+.dis {
+  background-color: #f5eac7;
+  border-radius: 10px;
+  width: 15%;
+  height: 20px;
+  text-align: center;
+  font-size: 12px;
+  margin: 0;
 }
 
 .paper {
-	display: inline-block;
+	/* display: inline-block; */
 	vertical-align: middle;
- 	width: 40%;
+ 	width: 30%;
+ 	margin: 0 15% 0 0;
 }
 
 .find {
@@ -119,8 +134,8 @@ input[type="range"] {
   text-align: center;
   border: 0px;
   font-size: 16px;
-  margin: 50px 20px 20px 20px;
-  width: 40%;
+  margin: 50px 10px 20px 10px;
+  width: 80%;
   height: 50px;
   border-radius: 6px;
 }

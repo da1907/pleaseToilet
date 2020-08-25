@@ -68,35 +68,11 @@
 	
 	<!-- 지도 담을 영역 -->
 	<div class="mapContainer">
-		<div class="toiletList">
-			
-			<div class="list">
-			
-			</div>
-		</div>
-		
 		<div class="mapView">
 			<div id="map" style="width:100%;"></div>
-			
-			
-			<div class="container1">
-            	<input
-	              oninput="ShowSliderValue(this.value)"
-	              type="range"
-	              min="0"
-	              max="500"
-	              value="0"
-	              class="distance"
-	              name="range"
-	            />
-	            <div class="dis">
-             		<font size="2" id="slider_value_view" class="disfont">0M</font>
-          		</div>
-          		<input type="button" value="찾기" id="findToiletBtn"></button>
-        </div>
-          	<p>
-			<button onclick="setBounds()">지도 범위 재설정 하기</button> 
-			</p>
+
+	    </div>
+          	
 		</div>
 	</div>
 	
@@ -164,10 +140,8 @@
 		    // 지도 중심좌표를 접속위치로 변경합니다
 		    map.setCenter(locPosition);      
 		}   
-		var list = "${list}";
 
 		$("document").ready(()=> {	
-			console.log(list);
 
 			$("#findToiletBtn").on("click", () => {
 				location.href = "map";
@@ -208,13 +182,5 @@
 	}        
 	
 	</script>
-	
-	<!-- 슬라이드 바 -->
-	<script language="javascript">
-          function ShowSliderValue(sVal) {
-            var obValueView = document.getElementById("slider_value_view");
-            obValueView.innerHTML = sVal + "M";
-          }
-        </script>
 </body>
 </html>

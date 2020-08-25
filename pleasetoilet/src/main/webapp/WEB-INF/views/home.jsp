@@ -59,22 +59,48 @@
       <button id="signupBtn" class="logBtn">회원가입</button>
       
     </div>
+    <div class="box">    
     <div class="container">
-    	<img src="/app/resources/img/paper.png" class="paper" align="right">
     	<h1 class="main_title1">PLEASE</h1>
     	<h1 class="main_title2">TOILET</h1>
-    	<div class="contents">
-	        급똥은 주변의 화장실 위치 정보를 제공받을 수 있는 서비스입니다.<br>
-	        <br>
-	        우선, 주변 화장실 위치 정보를 제공받기 위해 사이트에서<br>
-	        사용자의 위치를 파악할 수 있도록 허용해주세요.<br>
-	        <br>
-	        그리고, 화장실의 위치를 표시할 범위를 선택해주세요.<br>
+    	<div class="content-box">
+	    	<div class="contents">
+		        급똥은 주변의 화장실 위치 정보를 제공받을 수 있는 서비스입니다.<br>
+		        <br>
+		        우선, 주변 화장실 위치 정보를 제공받기 위해 사이트에서<br>
+		        사용자의 위치를 파악할 수 있도록 허용해주세요.<br>
+		        <br>
+		        그리고, 화장실의 위치를 표시할 범위를 선택해주세요.<br>
+		    </div>
+	        <div class="container1">
+            	<input
+	              oninput="ShowSliderValue(this.value)"
+	              type="range"
+	              min="0"
+	              max="500"
+	              value="0"
+	              class="distance"
+	              name="range"
+	            />
+	            <div class="dis">
+             		<font size="2" id="slider_value_view" class="disfont">0M</font>
+          		</div>
+          	</div>
+          	</div>
         <form action="/app/map" method="get">
           <input class="find" id="findBtn" type="submit" value="주변의 화장실 찾기">
         </form>
         
-      </div>
     </div>
+    <img src="/app/resources/img/paper.png" class="paper" align="right">
+    
+    </div>
+    <!-- 슬라이드 바 -->
+	<script language="javascript">
+          function ShowSliderValue(sVal) {
+            var obValueView = document.getElementById("slider_value_view");
+            obValueView.innerHTML = sVal + "M";
+          }
+        </script>
   </body>
 </html>

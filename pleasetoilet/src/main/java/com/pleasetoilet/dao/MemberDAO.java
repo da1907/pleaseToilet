@@ -6,6 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import javax.sql.DataSource;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -126,15 +127,24 @@ public class MemberDAO {
 		}
 	}
 	public void deleteMember(int mno) {
-		String sql="delete from member where mno=?";
+		String sql="update member set id=null where mno=?";
+		try {
+			conn=dataSource.getConnection();
+			st = conn.prepareStatement(sql);			
+			st.setInt(1, mno);
+			st.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			closeDB();
+		}
+	}
+	public void deleteMember(String id) {
+		String sql="update member set id=null where id=?";
 		try {
 			conn=dataSource.getConnection();
 			st = conn.prepareStatement(sql);
-			st.setInt(1, mno);
-			st.executeUpdate();
-			sql="update member set id=?";
-			st = conn.prepareStatement(sql);
-			st.setString(1,"탈퇴회원");
+			st.setString(1, id);
 			st.executeUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -197,7 +207,7 @@ public class MemberDAO {
 	
 	
 	public List<String> findByEmail(String email) {
-		String sql="select id from member where email=?";
+		String sql="select id from member where email=? and id is not null";
 		List<String> list=new ArrayList<String>();
 		try {
 			conn=dataSource.getConnection();
@@ -206,6 +216,7 @@ public class MemberDAO {
 			rs=st.executeQuery();
 			String getID=null;
 			while(rs.next()) {
+				String id=rs.getString("id");
 				list.add(rs.getString("id"));
 			}
 		}
@@ -218,6 +229,34 @@ public class MemberDAO {
 			return null;
 		else 
 			return list;
+	}
+	
+	public boolean checkIdAndPW(String id, String pw) {
+		String sql="select pw from member where id=?";
+		String encodedPW=null;
+		boolean key=true;
+		try {
+			conn=dataSource.getConnection();
+			st = conn.prepareStatement(sql);
+			st.setString(1, id);
+			rs=st.executeQuery();
+			while(rs.next()) {
+				encodedPW=rs.getString("pw");
+			}
+			if(pwEncoder.matches(pw, encodedPW)==false)
+				key=false;
+			
+		}
+		 catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			closeDB();
+		}
+		return key;
+	}
+	
+	public ArrayList<Map<String,String>> getUseList(String id){
+		String sql="select member.id, toilet.bigName, toilet.smallName from usetoilet, member, toilet where member.mno=?, toilet.tno=usetoilet.tno and member.mno=usetoilet.mno;";
 	}
 	
 }

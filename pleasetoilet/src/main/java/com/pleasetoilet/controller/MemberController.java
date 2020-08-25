@@ -44,7 +44,7 @@ public class MemberController {
 		if(session.getAttribute("id")!=null) {
 			return "home";
 		}
-		else return "signup";
+		else return "signUp";
 	}
 
 	@RequestMapping(value="/signup",method=RequestMethod.POST) 
@@ -52,7 +52,7 @@ public class MemberController {
 		dao.signUp(vo);
 		return "redirect:/home";
 	}
-	@RequestMapping(value="/mypage/changepassword",method=RequestMethod.GET)
+/*	@RequestMapping(value="/mypage/changepassword",method=RequestMethod.GET)
 	public String changePW1() {
 		return "changepw";
 	}
@@ -60,7 +60,7 @@ public class MemberController {
 	public String changePW2(int mno, String pw) {
 		dao.changePW(mno, pw);
 		return "redirect:/mypage";
-	}
+	}*/
 	
 	
 	
