@@ -8,20 +8,68 @@
 <script src="/app/resources/jquery-3.2.1.min.js"></script>
 
 <link href="/app/resources/css/map.css" rel="stylesheet" />
+
 <script>
-	$("document").ready(()=> {	
+      $("document").ready(() => {
+    	  <% session=request.getSession();%>
+    	  <% if(session.getAttribute("id")!=null){%>
+		  	$('#mypageBtn').removeAttr("hidden");
+		    $('#logoutBtn').removeAttr("hidden"); 
+		    $('#loginBtn').attr("hidden","hidden");
+		    $('#signupBtn').attr("hidden","hidden");
+
+		   <%} else{%>
+	    	$('#mypageBtn').attr("hidden","hidden");
+		    $('#logoutBtn').attr("hidden","hidden");
+	    	$('#loginBtn').removeAttr("hidden");
+	    	$('#signupBtn').removeAttr("hidden");
+
+	       <%}%>
+        $("#loginBtn").on("click", () => {
+          location.href = "login";
+        });
+        
+        $("#logoutBtn").on("click", () => {
+          location.href = "logout";
+        });
+        
+        $("#mypageBtn").on("click", () => {
+          location.href = "mypage";
+        });
+        
+        $("#signupBtn").on("click", () => {
+            location.href = "signup";
+          });
+ 
+
+	var list = "${list}";
+
+
+
 		$("#findToiletBtn").on("click", () => {
-			location.href = "toiletview";
+			location.href = "map";
 		});
 	});
 </script>
 
 </head>
 <body>
+	<!-- navbar -->
+	
+	<div id="navbar">
+ 		<a href="home" id="title">Please Toilet</a>
+		<div class="login_bar"> 
+	      <button id="mypageBtn" class="logBtn" hidden="hidden">마이페이지</button>
+	      <button id="logoutBtn" class="logBtn" hidden="hidden">로그아웃</button>
+	      <button id="loginBtn" class="logBtn">로그인</button>
+	      <button id="signupBtn" class="logBtn">회원가입</button>
+	    </div>
+	</div>
+	
 	<!-- 지도 담을 영역 -->
 	<div class="mapContainer">
 		<div class="toiletList">
-			<h1 id="listTitle">Please Toilet</h1>
+			
 			<div class="list">
 			
 			</div>
@@ -45,7 +93,10 @@
              		<font size="2" id="slider_value_view" class="disfont">0M</font>
           		</div>
           		<input type="button" value="찾기" id="findToiletBtn"></button>
-          	</div>
+        </div>
+          	<p>
+			<button onclick="setBounds()">지도 범위 재설정 하기</button> 
+			</p>
 		</div>
 	</div>
 	
@@ -112,7 +163,38 @@
 		    
 		    // 지도 중심좌표를 접속위치로 변경합니다
 		    map.setCenter(locPosition);      
-		}    
+		}   
+		var list = "${list}";
+
+		$("document").ready(()=> {	
+			console.log(list);
+
+			$("#findToiletBtn").on("click", () => {
+				location.href = "map";
+			});
+		});
+		
+		// 버튼을 클릭하면 아래 배열의 좌표들이 모두 보이게 지도 범위를 재설정합니다 
+		var points = list;
+
+		// 지도를 재설정할 범위정보를 가지고 있을 LatLngBounds 객체를 생성합니다
+		var bounds = new kakao.maps.LatLngBounds();    
+
+		var i, marker;
+		for (i = 0; i < points.length; i++) {
+		    // 배열의 좌표들이 잘 보이게 마커를 지도에 추가합니다
+		    marker =     new kakao.maps.Marker({ position : points[i] });
+		    marker.setMap(map);
+		    
+		    // LatLngBounds 객체에 좌표를 추가합니다
+		    bounds.extend(points[i]);
+		}
+
+		function setBounds() {
+		    // LatLngBounds 객체에 추가된 좌표들을 기준으로 지도의 범위를 재설정합니다
+		    // 이때 지도의 중심좌표와 레벨이 변경될 수 있습니다
+		    map.setBounds(bounds);
+		}
 	</script>
 	
 	<script>

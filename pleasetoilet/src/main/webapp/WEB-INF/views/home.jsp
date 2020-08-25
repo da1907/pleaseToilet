@@ -8,7 +8,7 @@
       href="https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding:wght@700&family=Noto+Sans+KR:wght@400;700&display=swap"
       rel="stylesheet"
     >
-    <title>급똥</title>
+    <title>Please Toilet</title>
     <link href="/app/resources/css/toilet.css" rel="stylesheet"/>
     
     <script src="/app/resources/jquery-3.2.1.min.js"></script>
@@ -44,10 +44,10 @@
             location.href = "signup";
           });
         
-        $("#findBtn").on("click", () => {
+        /* $("#findBtn").on("click", () => {
             location.href = "map";
           });
-        
+         */
       });
     </script>
   </head>
@@ -59,18 +59,18 @@
       <button id="signupBtn" class="logBtn">회원가입</button>
       
     </div>
-    <img src="/app/resources/img/paper.png" class="paper" align="right">
     <div class="container">
-      <h1 class="main_title">TITLE</h1>
-      <div class="contents">
-        급똥은 주변의 화장실 위치 정보를 제공받을 수 있는 서비스입니다.<br>
-        <br>
-        우선, 주변 화장실 위치 정보를 제공받기 위해 사이트에서<br>
-        사용자의 위치를 파악할 수 있도록 허용해주세요.<br>
-        <br>
-        그리고, 화장실의 위치를 표시할 범위를 선택해주세요.<br>
-        <form action="/app/map" method="post">
-          
+    	<img src="/app/resources/img/paper.png" class="paper" align="right">
+    	<h1 class="main_title1">PLEASE</h1>
+    	<h1 class="main_title2">TOILET</h1>
+    	<div class="contents">
+	        급똥은 주변의 화장실 위치 정보를 제공받을 수 있는 서비스입니다.<br>
+	        <br>
+	        우선, 주변 화장실 위치 정보를 제공받기 위해 사이트에서<br>
+	        사용자의 위치를 파악할 수 있도록 허용해주세요.<br>
+	        <br>
+	        그리고, 화장실의 위치를 표시할 범위를 선택해주세요.<br>
+        <form action="/app/map" method="get">
           <input class="find" id="findBtn" type="submit" value="주변의 화장실 찾기">
         </form>
         

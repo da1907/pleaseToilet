@@ -2,23 +2,24 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8" />
+<head>
+	<meta charset="UTF-8" />
     <title>Insert title here</title>
     <link href="/app/resources/css/login.css" rel="stylesheet" />
     <script src="/app/resources/jquery-3.2.1.min.js"></script>
     <script>
-      var k = "${msg}";
-      $("document").ready(() => {
-        console.log(k);
-        if (k == "fail") {
-          $("#loginstatus").html("로그인에 실패했습니다.");
-        }
-      });
+		var k = "${msg}";
+		$("document").ready(() => {
+        	console.log(k);
+        	if (k == "fail") {
+          	$("#loginstatus").html("로그인에 실패했습니다.");
+        	}
+      	});
     </script>
     
-  </head>
-  <body>
+</head>
+<body>
+  
     <div class="forms-container">
       <div class="form-group">
         <h1 class="title">LOG IN</h1>

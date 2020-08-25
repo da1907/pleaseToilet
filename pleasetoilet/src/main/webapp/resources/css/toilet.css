@@ -78,6 +78,7 @@ input[type="range"] {
 .login_bar {
   text-align: right;
 }
+
 .logBtn {
   background-color: transparent;
   border: 0px;
@@ -87,46 +88,29 @@ input[type="range"] {
 .contents {
   font-size: 16px;
   color: white;
+  margin: 30px 0 0 0;
 }
 
-.main_title {
-  font-size: 75px;
+.main_title1 {
+  font-size: 85px;
   color: #f5eac7;
+  margin: 0 0;
+}
+
+.main_title2 {
+  font-size: 85px;
+  color: #f5eac7;
+  margin: 0 0 0 20%;
 }
 
 .container {
-  padding-top: 10px;
-  padding-left: 300px;
-}
-
-.container1 {
-  margin-top: 30px;
-  color: #fd4c72;
-  margin-bottom: 20px;
-}
-
-a:link {
-  color: white;
-  text-decoration: none;
-}
-a:visited {
-  color: white;
-  text-decoration: none;
-}
-a:hover {
-  color: white;
-  text-decoration: none;
-}
-
-a:active {
-  color: white;
-  text-decoration: none;
+  padding: 5% 10% 0 10%;
 }
 
 .paper {
-  display: inline-block;
-  vertical-align: middle;
-  padding-right: 100px;
+	display: inline-block;
+	vertical-align: middle;
+ 	width: 40%;
 }
 
 .find {
@@ -135,8 +119,8 @@ a:active {
   text-align: center;
   border: 0px;
   font-size: 16px;
-  margin: auto;
-  width: 500px;
+  margin: 50px 20px 20px 20px;
+  width: 40%;
   height: 50px;
   border-radius: 6px;
 }
