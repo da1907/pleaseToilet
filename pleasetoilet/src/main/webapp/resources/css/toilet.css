@@ -84,21 +84,6 @@ input[type="range"] {
   font-size: 16px;
 }
 
-input[type="range"] {
-  background: black;
-}
-
-.dis {
-  background-color: #f5eac7;
-  border-radius: 10px;
-  width: 80px;
-  height: 20px;
-  text-align: center;
-  padding-top: 0px;
-  display: inline-block;
-  font-size: 12px;
-}
-
 .contents {
   font-size: 16px;
   color: white;

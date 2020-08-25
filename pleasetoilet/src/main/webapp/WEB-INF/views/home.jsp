@@ -70,20 +70,7 @@
         <br>
         그리고, 화장실의 위치를 표시할 범위를 선택해주세요.<br>
         <form action="/app/map" method="post">
-          <div class="container1">
-            <input
-              oninput="ShowSliderValue(this.value)"
-              type="range"
-              min="0"
-              max="500"
-              value="0"
-              class="distance"
-              name="range"
-            />
-            <div class="dis">
-              <font size="2" id="slider_value_view" class="disfont">0M</font>
-            </div>
-          </div>
+          
           <input class="find" id="findBtn" type="submit" value="주변의 화장실 찾기">
         </form>
         <script language="javascript">
