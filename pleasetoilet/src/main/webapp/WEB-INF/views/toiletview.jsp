@@ -4,16 +4,16 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Map</title>
+<title>Toilet View</title>
 <script src="/app/resources/jquery-3.2.1.min.js"></script>
 
 <link href="/app/resources/css/map.css" rel="stylesheet" />
 <script>
-	$("document").ready(()=> {	
-		$("#findToiletBtn").on("click", () => {
-			location.href = "toiletview";
-		});
+	var list = "${list}";
+	$("document").ready(()=> {
+		console.log(list);
 	});
+	
 </script>
 
 </head>

@@ -141,6 +141,10 @@ a:active {
   border-radius: 6px;
 }
 
+#findBtn:hover {
+	cursor: pointer;
+}
+
 .disfont {
   margin-top: 0px;
 }

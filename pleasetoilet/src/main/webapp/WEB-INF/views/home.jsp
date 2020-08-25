@@ -16,10 +16,10 @@
       $("document").ready(() => {
     	  <% session=request.getSession();%>
     	  <% if(session.getAttribute("id")!=null){%>
-		    	$('#mypageBtn').removeAttr("hidden");
-		    	$('#logoutBtn').removeAttr("hidden"); 
-		    	$('#loginBtn').attr("hidden","hidden");
-		    	$('#signupBtn').attr("hidden","hidden");
+		  	$('#mypageBtn').removeAttr("hidden");
+		    $('#logoutBtn').removeAttr("hidden"); 
+		    $('#loginBtn').attr("hidden","hidden");
+		    $('#signupBtn').attr("hidden","hidden");
 
 		   <%} else{%>
 	    	$('#mypageBtn').attr("hidden","hidden");
@@ -73,12 +73,7 @@
           
           <input class="find" id="findBtn" type="submit" value="주변의 화장실 찾기">
         </form>
-        <script language="javascript">
-          function ShowSliderValue(sVal) {
-            var obValueView = document.getElementById("slider_value_view");
-            obValueView.innerHTML = sVal + "M";
-          }
-        </script>
+        
       </div>
     </div>
   </body>
