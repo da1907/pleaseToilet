@@ -26,7 +26,6 @@ body {
 .login_bar {
 	display: flex;
 	text-align: right;
-	
 }
 
 .logBtn {
@@ -46,18 +45,21 @@ body {
 .mapContainer{
 	display: flex;
 	height: 600px;
+	
+}
+
+.listview {
+	width: 30%;
+	margin: 0 0 10px 0;
 }
 
 .mapView {
-	width:90%;
-	height: 100%;
-	flex-direction: column;
+	width:70%;
+	height: 600px;
 	margin: auto;
 }
 
 #map {
-	width: 70%;
 	height: 600px;
 	align: center;
-	margin: 0 0 30px 0;
 }

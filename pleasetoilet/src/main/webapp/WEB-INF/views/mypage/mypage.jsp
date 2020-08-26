@@ -26,9 +26,13 @@ $('document').ready(() => {
 			}
 		});
 	});
-	$("#homeBtn").on("click", () => {
+	$("#homelogo").on("click", () => {
    		location.href = "home";
    	});
+	$("#logoutBtn").on("click", () => {
+        location.href = "logout";
+      });
+	
 	$('#usedlog').on("click",() => {
 		$.ajax({
 			url : "/app/mypage/usedlog",
@@ -76,9 +80,12 @@ $('document').ready(() => {
 
 </head>
 <body>
-<div class="login_bar">
-      <button id="homeBtn" class="logBtn">홈</button>      
-</div>
+	<div id="navbar">
+		<a href="home" id="homelogo">Please Toilet</a>
+		<div class="login_bar">
+	      <button id="logoutBtn" class="logBtn">로그아웃</button>
+	    </div>
+	</div>
 	<div id="container">
         <div id="title">
             <h1 id="title-mypage">MY PAGE</h1>

@@ -13,7 +13,7 @@ body {
 	padding: 16px;
 }
 
-#title {
+#homelogo {
 	color: rgb(245, 234, 199);
 	font-size: 40px;
 	font-weight: bold;
@@ -72,4 +72,8 @@ input {
 #idbox {
 	width: 20%;
 	text-align: right;
+}
+
+#idcheck:hover, #submitBtn:hover{
+	cursor: pointer;
 }

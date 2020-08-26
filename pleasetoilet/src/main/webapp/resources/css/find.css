@@ -6,14 +6,30 @@ body {
   height: 600px;
 }
 
+#navbar {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 16px;
+}
+
+#homelogo {
+	color: rgb(245, 234, 199);
+	font-size: 40px;
+	font-weight: bold;
+	text-decoration: none;
+	margin: 0;
+}
+
 .login_bar {
-  text-align: right;
+	display: flex;
+	text-align: right;
 }
 
 .logBtn {
-	background-color: transparent;
-	border: 0px;
-	font-size: 16px;
+  	background-color: transparent;
+  	border: 0px;
+  	font-size: 16px;
 	cursor: pointer;
 	color: white;
 	padding: 8px 12px;

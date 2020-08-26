@@ -44,13 +44,13 @@ public class MemberController {
 		if(session.getAttribute("id")!=null) {
 			return "home";
 		}
-		else return "signUp";
+		else return "signup";
 	}
 
 	@RequestMapping(value="/signup",method=RequestMethod.POST) 
 	public String goHome(MemberVO vo) { 
 		dao.signUp(vo);
-		return "redirect:/home";
+		return "signup";
 	}
 /*	@RequestMapping(value="/mypage/changepassword",method=RequestMethod.GET)
 	public String changePW1() {

@@ -5,25 +5,30 @@
 <head>
 <meta charset="UTF-8">
 <title>아이디 찾기</title>
-<link href="/app/resources/css/find.css" rel="stylesheet"/>
+<script src="/app/resources/jquery-3.2.1.min.js"></script>
+
+<link href="/app/resources/css/find.css?ver=1" rel="stylesheet"/>
 <script>
 	$("document").ready(() => {
-	    $("#loginBtn").on("click", () => {
-	        location.href = "login";
-	      });
-	      
-	      $("#homeBtn").on("click", () => {
-	        location.href = "home";
-	      });
+		$("#loginBtn").on("click", () => {
+       		location.href = "/app/login";
+       	});
+		$("#signupBtn").on("click", () => {
+       		location.href = "/app/signup";
+       	});
 	});
 </script>
 </head>
 <body>
 
-<div class="login_bar">
-	<button id="homeBtn" class="logBtn">홈</button>
-    <button id="loginBtn" class="logBtn">로그인</button> 
-</div>
+	<!-- navbar -->
+	<div id="navbar">
+		<a href="/app/home" id="homelogo">Please Toilet</a>
+		<div class="login_bar">
+			<button id="loginBtn" class="logBtn">로그인</button>
+			<button id="signupBtn" class="logBtn">회원가입</button>
+		</div>
+	</div>
 
 <div class="form">
 	<h3>가입시 입력했던 이메일을 입력하세요</h3>

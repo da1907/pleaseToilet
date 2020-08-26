@@ -65,7 +65,7 @@
         </form>
       </div>
       <div class="forget-group">
-        <a id="id_forget" href="/app/login/findid">아이디를 잊어버리셨나요?</a>
+        <a id="id_forget" href="/app/login/findid">아이디를 잊어버리셨나요?</a><br>
         <a id="pw_forget" href="/app/login/findpw">
           비밀번호를 잊어버리셨나요?
         </a>
