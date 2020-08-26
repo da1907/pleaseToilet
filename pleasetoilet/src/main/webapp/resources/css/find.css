@@ -67,5 +67,53 @@ h3 {
 #findBtn {
 	width: 20%;
 	height: 30px;
-	margin-top: 20px;
+	margin: 20px 0;
+	background-color: #fd4c72;
+	border: none;
+	color: rgb(245, 234, 199);
+	border-radius: 4px;
 }
+
+#findBtn:hover {
+	cursor: pointer;
+}
+
+#stat {
+	color: rgb(245, 234, 199);
+	font-size: 24px;
+}
+
+.content {
+	color: rgb(245, 234, 199);
+}
+
+.changeform {
+	margin: auto;
+	width: 400px;
+	height: 200px;
+	padding-top: 100px;
+	text-align: center;
+}
+
+input[type=password] {
+	width: 250px;
+	height: 30px;
+	margin-top: 15px;
+	border-radius: 4px;
+	border: none;
+}
+
+#changeBtn {
+	width: 100px;
+	height: 30px;
+	margin-top: 40px;
+	background-color: #fd4c72;
+	border: none;
+	color: rgb(245, 234, 199);
+	border-radius: 4px;
+}
+
+#changeBtn:hover {
+	cursor: pointer;
+}
+

@@ -7,15 +7,25 @@
 <title>아이디 찾기</title>
 <script src="/app/resources/jquery-3.2.1.min.js"></script>
 
-<link href="/app/resources/css/find.css?ver=1" rel="stylesheet"/>
+<link href="/app/resources/css/find.css" rel="stylesheet"/>
 <script>
+	
 	$("document").ready(() => {
+		var k ="${msg}";
+		var list = "${list}";
+		
 		$("#loginBtn").on("click", () => {
        		location.href = "/app/login";
        	});
 		$("#signupBtn").on("click", () => {
        		location.href = "/app/signup";
        	});
+		
+		if(k == "fail") {
+			$("#stat").html("일치하는 아이디가 없습니다.");
+		} else {
+			$("#stat").html(list);
+		}
 	});
 </script>
 </head>
@@ -35,6 +45,9 @@
 	<form action="/app/login/findid" method="post">
 	<input type="text" id="email" name="email" placeholder="이메일"> <br>
 	<input type="submit" id="findBtn" value="아이디찾기">
+	<div id="stat">
+
+	</div>
 	</form>
 </div>
 </body>
