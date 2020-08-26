@@ -1,26 +1,21 @@
 package com.pleasetoilet.vo;
 
 public class ReviewVO {
-	private int tno;
 	private int uno;
 	private String contents;
-	private int star;
-	
-	public ReviewVO() {
+	private String id;
+	private String tname;
+	private String usedate;
+	public ReviewVO(int uno, String contents, String id, String tname, String usedate) {
 		super();
-	}
-	public ReviewVO(int tno, int uno, String contents, int star) {
-		super();
-		this.tno = tno;
 		this.uno = uno;
 		this.contents = contents;
-		this.star = star;
+		this.id = id;
+		this.tname = tname;
+		this.usedate = usedate;
 	}
-	public int getTno() {
-		return tno;
-	}
-	public void setTno(int tno) {
-		this.tno = tno;
+	public ReviewVO() {
+		super();
 	}
 	public int getUno() {
 		return uno;
@@ -34,15 +29,23 @@ public class ReviewVO {
 	public void setContents(String contents) {
 		this.contents = contents;
 	}
-	public int getStar() {
-		return star;
+	public String getId() {
+		return id;
 	}
-	public void setStar(int star) {
-		this.star = star;
+	public void setId(String id) {
+		this.id = id;
 	}
-	@Override
-	public String toString() {
-		return "ReviewVO [tno=" + tno + ", uno=" + uno + ", contents=" + contents + ", star=" + star + "]";
+	public String getTname() {
+		return tname;
+	}
+	public void setTname(String tname) {
+		this.tname = tname;
+	}
+	public String getUsedate() {
+		return usedate;
+	}
+	public void setUsedate(String usedate) {
+		this.usedate = usedate;
 	}
 	
 }
