@@ -106,15 +106,8 @@ public class LoginController {
 		ModelAndView mv = new ModelAndView();
 		List<String> list=dao.findByEmail(email);
 		
-		if (list != null) {
-			mv.addObject("msg", "id : ");
-			mv.addObject("list", list);
-			mv.setViewName("login/findID");
-		} else {
-			mv.addObject("msg", "fail");
-			mv.setViewName("login/findID");
-
-		}
+		mv.addObject("list", list);
+		mv.setViewName("login/getID");
 		return mv;
 
 	}

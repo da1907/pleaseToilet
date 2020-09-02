@@ -53,26 +53,36 @@ public class ReviewDAO {
 
 	public List<ReviewVO> getReview(String tno, String id){
 		List<ReviewVO> list= new ArrayList<ReviewVO>();
-		
-		list.add(new ReviewVO(1, "gooood", "test1234", "to1", "20/01/01"));
-		list.add(new ReviewVO(2, "baaaad", "qkqh123", "to1", "20/01/02"));
-		list.add(new ReviewVO(3, "soso", "testbo", "to1", "20/01/03"));
-		list.add(new ReviewVO(4, "dirty", "babo12", "to1", "20/01/04"));
-//		try {
-//			conn=dataSource.getConnection();			
-//			String sql="select review.uno,contents,member.id,toilet.smallName,usedate from member, review, usetoilet, toilet where review.uno=usetoilet.uno and toilet.tno = usetoilet.tno and toilet.tno=? and member.mno=usetoilet.mno";
-//			st=conn.prepareStatement(sql);
-//			st.setString(1,tno);
-//			rs=st.executeQuery();
-//			while(rs.next()) {
-//				list.add(new ReviewVO(rs.getInt("uno"), rs.getString("contents"), rs.getString("id"), rs.getString("smallName"), rs.getString("usedate")));
-//			}
-//			
-//		} catch(Exception e) {
-//			e.printStackTrace();
-//		} finally {
-//			closeDB();
-//		}
-		return list;
+		try {
+			conn=dataSource.getConnection();			
+			String sql="select review.uno,contents,member.id,toilet.smallName,usedate from member, review, usetoilet, toilet where review.uno=usetoilet.uno and toilet.tno = usetoilet.tno and toilet.tno=? and member.mno=usetoilet.mno";
+			st=conn.prepareStatement(sql);
+			st.setString(1,tno);
+			rs=st.executeQuery();
+			while(rs.next()) {
+				list.add(new ReviewVO(rs.getInt("uno"), rs.getString("contents"), rs.getString("id"), rs.getString("smallName"), rs.getString("usedate")));
+			}
+			
+		} catch(Exception e) {
+			e.printStackTrace();
+		} finally {
+			closeDB();
+		}
+		if(list.size()==0)
+			return null;
+		else return list;
+	}
+	
+	public void saveReview(int uno, String contents) {
+		try { 
+			conn=dataSource.getConnection();			
+			String sql="insert into review values(uno,contents)";
+			st=conn.prepareStatement(sql);
+			st.executeUpdate();
+		} catch(Exception e) {
+			e.printStackTrace();
+		} finally {
+			closeDB();
+		}
 	}
 }

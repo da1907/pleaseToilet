@@ -22,29 +22,33 @@ public class ReviewController {
 	@Autowired
 	ReviewDAO dao;
 	
-//	@RequestMapping(value="review",method=RequestMethod.GET)
-//	public String review() {
-//		return "review";
-//	}
-//	
-	@RequestMapping(value="review",method=RequestMethod.GET)
+	@RequestMapping("review")
 	public ModelAndView getReview(HttpSession session, String tno) {
 		ModelAndView mv = new ModelAndView();
 		if(session.getAttribute("id")==null) {
 			mv.setViewName("redirect:/home");
 		} else {
 			List<ReviewVO> list=dao.getReview(tno, (String)session.getAttribute("id"));
-			
-			if(list != null) {
-				mv.addObject("msg","success");
-				mv.addObject("list",list);
-				System.out.println(list);
-				mv.setViewName("review");
-			} else {
-				mv.addObject("msg", "fail");
-				mv.setViewName("review");
-			}
+			mv.addObject("reviewList",list);
+			mv.setViewName("review");
 		}
 		return mv;
+	}
+	@RequestMapping(value="writereview",method = RequestMethod.GET)
+	public ModelAndView writeReview(HttpSession session, int uno) {
+		ModelAndView mv = new ModelAndView();
+		if(session.getAttribute("id")==null)
+			mv.setViewName("redirect:/home");
+		else {
+			mv.addObject("uno",uno);
+			mv.setViewName("writereview");
+		}
+		return mv;
+	}
+	
+	@RequestMapping(value="writereview",method=RequestMethod.POST)
+	public String saveReview(int uno, String contents) {
+		dao.saveReview(uno, contents);
+		return "mypage/mypage";
 	}
 }

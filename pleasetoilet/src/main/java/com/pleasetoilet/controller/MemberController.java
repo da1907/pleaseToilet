@@ -50,7 +50,7 @@ public class MemberController {
 	@RequestMapping(value="/signup",method=RequestMethod.POST) 
 	public String goHome(MemberVO vo) { 
 		dao.signUp(vo);
-		return "signup";
+		return "redirect:/home";
 	}
 /*	@RequestMapping(value="/mypage/changepassword",method=RequestMethod.GET)
 	public String changePW1() {

@@ -9,7 +9,7 @@
       rel="stylesheet"
     >
     <title>Please Toilet</title>
-    <link href="/app/resources/css/toilet.css" rel="stylesheet"/>
+    <link href="/app/resources/css/toilet.css?ver=1" rel="stylesheet"/>
     
     <script src="/app/resources/jquery-3.2.1.min.js"></script>
     <script>

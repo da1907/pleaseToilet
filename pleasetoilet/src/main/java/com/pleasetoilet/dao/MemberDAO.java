@@ -14,6 +14,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Component;
 
 import com.pleasetoilet.vo.MemberVO;
+import com.pleasetoilet.vo.useToiletVO;
 
 
 
@@ -83,7 +84,6 @@ public class MemberDAO {
 	}
 
 	public void signUp(MemberVO vo) {
-		System.out.println(vo);
 		String sql = "insert into member(id,pw,email) values(?,?,?)";
 		try {
 			conn=dataSource.getConnection();
@@ -205,6 +205,36 @@ public class MemberDAO {
 		return echeck;
 	}
 	
+	public boolean checkPW(String id, String pw) {
+		/* input에 입력한 비밀번호가 DB에 존재하는지 확인 */
+		String sql = "select pw from member where id=? and pw=?";
+		boolean check = false;
+		
+		try {
+			conn = dataSource.getConnection();
+			st = conn.prepareStatement(sql);
+			st.setString(1, pw);
+			rs = st.executeQuery();
+			
+			String DBpw = "";
+			if(rs.next()) {
+				DBpw = rs.getString("pw");
+			}
+			
+			if(pwEncoder.matches(pw, DBpw)) {
+				check = true;
+			}
+			
+		} catch(Exception e) {
+			e.printStackTrace();
+		} finally {
+			closeDB();
+		}
+		
+		return check;
+	}
+	
+	
 	
 	public List<String> findByEmail(String email) {
 		String sql="select id from member where email=? and id is not null";
@@ -230,33 +260,62 @@ public class MemberDAO {
 		else 
 			return list;
 	}
-	
-	public boolean checkIdAndPW(String id, String pw) {
-		String sql="select pw from member where id=?";
-		String encodedPW=null;
-		boolean key=true;
-		try {
-			conn=dataSource.getConnection();
-			st = conn.prepareStatement(sql);
-			st.setString(1, id);
-			rs=st.executeQuery();
-			while(rs.next()) {
-				encodedPW=rs.getString("pw");
-			}
-			if(pwEncoder.matches(pw, encodedPW)==false)
-				key=false;
-			
-		}
-		 catch (Exception e) {
-			e.printStackTrace();
-		} finally {
-			closeDB();
-		}
-		return key;
-	}
-	
-	public ArrayList<Map<String,String>> getUseList(String id){
-		String sql="select member.id, toilet.bigName, toilet.smallName from usetoilet, member, toilet where member.mno=?, toilet.tno=usetoilet.tno and member.mno=usetoilet.mno;";
-	}
-	
+//	
+//	public boolean checkIdAndPW(String id, String pw) {
+//		String sql="select pw from member where id=?";
+//		String encodedPW=null;
+//		boolean key=true;
+//		try {
+//			conn=dataSource.getConnection();
+//			st = conn.prepareStatement(sql);
+//			st.setString(1, id);
+//			rs=st.executeQuery();
+//			while(rs.next()) {
+//				encodedPW=rs.getString("pw");
+//			}
+//			if(pwEncoder.matches(pw, encodedPW)==false)
+//				key=false;
+//			
+//		}
+//		 catch (Exception e) {
+//			e.printStackTrace();
+//		} finally {
+//			closeDB();
+//		}
+//		return key;
+//	}
+//	
+//	public ArrayList<useToiletVO> getUseList(String id){
+//		String sql="select uno,toilet.tno,usedate,smallName from member, usetoilet, toilet where member.id=? and member.mno=usetoilet.mno and toilet.tno=usetoilet.tno";
+//		ArrayList<useToiletVO> list = new ArrayList<useToiletVO>();
+//		try {
+//			conn=dataSource.getConnection();
+//			st=conn.prepareStatement(sql);
+//			st.setString(1,id);
+//			rs=st.executeQuery();
+//			while(rs.next()) {
+//				list.add(new useToiletVO(rs.getInt("uno"), rs.getString("tno"), rs.getString("smallName"), rs.getString("usedate")));
+//			}
+//		} catch(Exception e) {
+//			e.printStackTrace();
+//		} finally {
+//			closeDB();
+//		}
+//		return list;
+//	}
+//	
+//	public void saveUseList(String tno, String id) {
+//		try {
+//			String sql="insert into usetoilet(usedate,mno,tno) values(now(),(select mno from member where id = ?),?)";
+//			conn=dataSource.getConnection();
+//			st=conn.prepareStatement(sql);
+//			st.setString(1,id);
+//			st.setString(2,tno);
+//			st.executeUpdate();
+//		} catch(Exception e) {
+//			e.printStackTrace();
+//		} finally {
+//			closeDB();
+//		}
+//	}
 }
