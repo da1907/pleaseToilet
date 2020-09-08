@@ -17,7 +17,7 @@
 <img width="500" height="370" alt="pleasetoilet" src="https://user-images.githubusercontent.com/32568829/92426093-f637f300-f1c3-11ea-9639-abd38e7dba5d.png">
 <h3> 반응형 </h3>
 <div>
-<img width="250" height="400" alt="pleasetoilet" src="https://user-images.githubusercontent.com/32568829/92426206-4ca53180-f1c4-11ea-9a7a-395aea5bbda0.PNG">
-<img width="250" height="400" alt="pleasetoilet" src="https://user-images.githubusercontent.com/32568829/92426240-63e41f00-f1c4-11ea-8118-3c61e610c280.PNG">
-<img width="250" height="400" alt="pleasetoilet" src="https://user-images.githubusercontent.com/32568829/92426267-79594900-f1c4-11ea-9390-a45770a1672e.PNG">
+<img width="200" height="350" alt="pleasetoilet" src="https://user-images.githubusercontent.com/32568829/92426206-4ca53180-f1c4-11ea-9a7a-395aea5bbda0.PNG">
+<img width="200" height="350" alt="pleasetoilet" src="https://user-images.githubusercontent.com/32568829/92426240-63e41f00-f1c4-11ea-8118-3c61e610c280.PNG">
+<img width="200" height="350" alt="pleasetoilet" src="https://user-images.githubusercontent.com/32568829/92426267-79594900-f1c4-11ea-9390-a45770a1672e.PNG">
 </div>
